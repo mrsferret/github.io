@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("images/balloons-floating.jpg") bottom center;
+        background-size: cover;
+        font-family: "Roboto", sans-serif; /* Example font */
+      }
+
+      .container-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .upper-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 830px;
+        height: 100px;
+        background-color: lightblue; /* Adjust color as needed */
+        border: 1px solid #ccc;
+        border-radius: 3%;
+        margin-bottom: 20px; /* Adjust margin as needed */
+        flex-direction: column; /* Adjusted to horizontally arrange balloons */
+      }
+      .text-line-1 {
+        font-size: 2em; /* 40px/16=2.5em */
+      }
+      .text-line-2 {
+        font-size: 1em; /* 40px/16=2.5em */
+      }
+
+      .stable {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row; /* Adjusted to horizontally arrange balloons */
+        align-items: flex-end; /* Align balloons at the bottom */
+        width: 800px;
+        height: 500px;
+        background-color: yellowgreen; /* Light yellow background color */
+        border: 1px solid #ccc; /* Optional border for the container */
+        border-radius: 3%;
+        padding: 20px; /* Optional padding for better visual appearance */
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+      }
+
+      .stable .balloon {
+        position: relative;
+        width: 100px;
+        height: 163px;
+        background: url(images/balloon.png) no-repeat;
+        bottom: 0; /* Initial position at the bottom */
+        transition-duration: 3s; /* Common transition duration for all balloons */
+      }
+
+      .stable .balloon-text {
+        position: absolute;
+        top: 45%; /* Move text to the middle of the balloon */
+        left: 50%; /* Center text horizontally */
+        transform: translate(
+          -50%,
+          -50%
+        ); /* Center text both vertically and horizontally */
+        color: #fff; /* Optional text color */
+      }
+
+      .stable:hover .balloon.default {
+        bottom: 350px;
+        transition-timing-function: ease-out;
+      }
+      .stable:hover .balloon.linear {
+        bottom: 350px;
+        transition-timing-function: linear;
+      }
+      .stable:hover .balloon.ease-in {
+        bottom: 350px;
+        transition-timing-function: ease-in;
+      }
+      .stable:hover .balloon.ease-out {
+        bottom: 350px;
+        transition-timing-function: ease-out;
+      }
+      .stable:hover .balloon.ease-in-out {
+        bottom: 350px;
+        transition-timing-function: ease-in-out;
+      }
+      .stable:hover .balloon.cubic-bezier {
+        bottom: 350px;
+        transition-timing-function: cubic-bezier(0, 2, 1, 0.5);
+      }
+
+      .stable .balloon.default {
+        background-image: url(images/balloon-blue.png);
+      }
+
+      @media screen and (max-width: 600px) {
+        /* Adjust styles for smaller screens */
+        .upper-container,
+        .stable {
+          width: 90%;
+          max-width: none; /* Remove maximum width for smaller screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-wrapper">
+      <div class="upper-container">
+        <div class="text-line-1">
+          Visual Demo of the CSS Transition Timing Function
+        </div>
+        <div class="text-line-2">
+          Hover over Image to see the Effect (Best viewed on pc/laptop)
+        </div>
+      </div>
+      <div class="stable">
+        <div class="balloon default">
+          <div class="balloon-text">default</div>
+        </div>
+        <div class="balloon linear">
+          <div class="balloon-text">linear</div>
+        </div>
+        <div class="balloon ease-in">
+          <div class="balloon-text">ease-in</div>
+        </div>
+        <div class="balloon ease-out">
+          <div class="balloon-text">ease-out</div>
+        </div>
+        <div class="balloon ease-in-out">
+          <div class="balloon-text">ease-in-out</div>
+        </div>
+        <div class="balloon cubic-bezier">
+          <div class="balloon-text">cubic-bezier</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
